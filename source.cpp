@@ -138,7 +138,8 @@ void delete_item(list_customer &lc, string id) //delete item berdasarkan id item
 
 adr_customer search_customer(list_customer lc, string id, adr_customer *prec)   // buat nyari customer berdasarkan id
 {                                                                               //prec ini ngembaliin elemen sebelum elemen yang dicari
-    adr_customer p = lc.first;                                                  //soalnya search in nantinya juga bisa dipake buat hapus customer berdasarkan id
+    adr_customer p = lc.first;  
+    *prec = NULL;                                                //soalnya search in nantinya juga bisa dipake buat hapus customer berdasarkan id
     while (p)
     {
         if (p->info.id == id)
@@ -155,6 +156,7 @@ adr_customer search_customer(list_customer lc, string id, adr_customer *prec)   
 adr_item search_item(list_customer lc, string id, adr_item *prec)//buat nyari item berdasarkan id, gunsi prec sama kae search customer
 {
     adr_customer p = lc.first;
+    *prec = NULL;
     while (p)
     {
         adr_item q = p->listItem;
@@ -176,6 +178,7 @@ adr_item search_item(list_customer lc, string id, adr_item *prec)//buat nyari it
 adr_pic search_pic(list_pic lp, string id, adr_pic *prec) //buat nyari pic berdasarkan id, prec sama jg fungsinya kae sebelumnya
 {
     adr_pic p = lp.first;
+    *prec = NULL;
     while (p)
     {
         if (p->info.id == id)
